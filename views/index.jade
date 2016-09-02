@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form(name="input", action="html_form_action.asp", method="get")
+  | First Name:
+  input(type="text", name="user")
+
+  | Last Name:
+  input(type="text", name="pswd")
+  
+  | Favorite Throws:
+  input(type="text", name="pswd")
+
+  input(type="submit", value="Submit")

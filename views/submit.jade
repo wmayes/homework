@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Tell me about yourself
+
+  form(action='/log', method='POST')
+    | First Name:
+    input(type='text', name='firstName')
+
+    | Last Name:
+    input(type='text', name='lastName')
+  
+    | Favorite Throws:
+    input(type='text', name='fThrows')
+
+    input(type='submit', value='Submit')
