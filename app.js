@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var db = require('./routes/db');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var post = require ('./routes/submit');
@@ -51,6 +52,15 @@ if (app.get('env') === 'development') {
     });
   });
 }
+
+app.get('/save',function(req,res){
+    var post  = {from:'me', to:'you', msg:'hi'};
+    db.query('INSERT INTO messages SET ?', post, function(err, result) {
+      if (err) throw err;
+    });
+});
+
+//server.listen(3000);
 
 // production error handler
 // no stacktraces leaked to user
